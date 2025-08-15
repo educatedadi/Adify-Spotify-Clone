@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdiFy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
 </head>
 <body>
     <nav>
         <ul class="nav">
             <li class="brand"><img src="static/logo.png" alt="logo">AdiFy</li>
             <li>Home</li>
-            <li>About</li>
+            <li id="aboutNav">About</li>
 
         </ul>
     </nav>
@@ -77,7 +78,12 @@
         <div class="songBanner"></div>
     </div>
     <div class="bottom">
-        <input type="range" name="range" id="myprogressBar" min="0" value="0" max="100">
+        <div class="progress-container">
+            <span id="currentTime">0:00</span>
+            <input type="range" name="range" id="myprogressBar" min="0" value="0" max="100">
+            <span id="totalTime">0:00</span>
+        </div>
+
         <div class="icon">
             <i class="fa-solid fa-3x fa-step-backward" id="previous"></i>
             <i class="fa-solid fa-3x fa-circle-play" id="masterPlay"></i>
@@ -88,6 +94,20 @@
         </div>
     </div>
     <script src="https://kit.fontawesome.com/ca7a724fc2.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>About This Project</h2>
+            <p>
+                This is a basic music player inspired by Spotify, built using HTML, CSS, and JavaScript.
+                It features a playlist, play/pause controls, progress tracking, and a dynamic UI that
+                highlights the currently playing song. Perfect for learning DOM manipulation, event
+                handling, and the HTML5 Audio API.
+            </p>
+        </div>
+    </div>
 </body>
 </html>
