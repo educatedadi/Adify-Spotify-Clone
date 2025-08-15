@@ -1,41 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-body{
+
+body {
     background-color: black;
+    color: white;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-nav{
+
+nav {
     font-family: 'Ubuntu', sans-serif;
 }
-nav ul{
+
+nav ul {
     display: flex;
     align-items: center;
     list-style: none;
     height: 65px;
     background-color: black;
 }
-nav ul li{
+
+nav ul li {
     padding: 0px 48px;
     color: white;
+    transition: color 0.3s ease;
 }
-.brand img{
+
+nav ul li:hover {
+    color: #fccc0c; /* Accent color on hover */
+    cursor: pointer;
+}
+
+.brand img {
     width: 58px;
     padding: 0px 25px;
     border-radius: 52%;
+    border: 2px solid #fccc0c; /* Yellow border for logo */
 }
-.brand{
+
+.brand {
     display: flex;
     align-items: center;
     font-weight: bolder;
     font-size: 1.3rem;
+    color: #fccc0c; /* Brand name in yellow */
 }
-.nav li:hover{
-    cursor: pointer;
-}
-.container{
+
+.container {
     min-height: 72vh;
     background-color: black;
     color: white;
@@ -43,14 +57,14 @@ nav ul li{
     display: flex;
     margin: 23px auto;
     width: 87%;
-    border-radius: 120px;
+    border-radius: 20px;
     padding: 34px;
     background-image: url('static/bg.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-
 }
-.bottom{
+
+.bottom {
     position: sticky;
     height: 98px;
     background-color: black;
@@ -60,51 +74,141 @@ nav ul li{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
 }
-.icon{
+
+.icon {
     margin: 14px 0px;
+    display: flex;
+    gap: 30px; /* Increased spacing between buttons */
+    align-items: center;
 }
-.icon i{
+
+.icon i {
     cursor: pointer;
+    color: #fccc0c; /* Accent color for control icons */
+    transition: transform 0.2s ease;
 }
-#myprogressBar{
+
+.icon i:hover {
+    transform: scale(1.2);
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 80vw;
+    justify-content: center;
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#myprogressBar {
     width: 80vw;
     cursor: pointer;
-    
+    accent-color: #fccc0c; /* Modern browsers */
 }
-.songiteamcontainer{
+
+/* For browsers without accent-color support */
+#myprogressBar::-webkit-slider-thumb {
+    background-color: #fccc0c;
+}
+#myprogressBar::-moz-range-thumb {
+    background-color: #fccc0c;
+}
+
+.songiteamcontainer {
     margin-top: 34px;
 }
-.songiteam{
+
+.songiteam {
     height: 50px;
     display: flex;
     background-color: white;
-   
     color: black;
     margin: 12px 0px;
     justify-content: space-between;
     align-items: center;
     border-radius: 30px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease, background-color 0.3s ease;
 }
-.songiteam img{
+
+.songiteam.playing {
+    border: 2px solid #fccc0c;
+    background-color: #fff8e1; /* soft yellow */
+}
+
+.songiteam:hover {
+    border: 2px solid #fccc0c;
+    background-color: #fff8e1; /* Very light yellow on hover */
+}
+
+.songiteam img {
     width: 40px;
     margin: 0 23px;
     border-radius: 30px;
+    border: 2px solid #fccc0c; /* Yellow border for song covers */
 }
-.timestamp{
+
+.timestamp {
     margin: 0 23px;
-    
 }
-.timestamp i{
+
+.timestamp i {
     cursor: pointer;
+    color: #fccc0c; /* Play buttons yellow */
 }
-.songinfo{
+
+.songinfo {
     position: absolute;
     left: 10vw;
     font-family: 'Varela Round', sans-serif;
+    color: #fccc0c; /* Song name yellow */
 }
-.songinfo img{
+
+.songinfo img {
     opacity: 0;
     transition: opacity 0.4s ease-in;
+}
+
+/* Modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Translucent black overlay */
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 500px;
+    font-family: 'Varela Round', sans-serif;
+    color: black;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #fccc0c; /* Yellow on hover */
 }
