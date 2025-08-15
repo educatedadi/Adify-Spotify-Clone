@@ -212,3 +212,70 @@ nav ul li:hover {
 .close-btn:hover {
     color: #fccc0c; /* Yellow on hover */
 }
+
+/* Ensure background image stays on right side */
+.container {
+    background-position: right center;
+    background-size: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    nav ul li {
+        padding: 0px 20px;
+    }
+    .container {
+        width: 95%;
+        padding: 20px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    nav ul li {
+        padding: 10px 0;
+    }
+    .container {
+        flex-direction: column;
+        background-position: right center; /* keep right side visible */
+        background-size: cover;
+    }
+    .songiteam {
+        font-size: 0.9rem;
+    }
+    #myprogressBar {
+        width: 90vw;
+    }
+    .progress-container {
+        width: 90vw;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        text-align: center;
+    }
+    .container {
+        width: 100%;
+        padding: 15px;
+        border-radius: 0;
+        background-position: right center; /* focus on right side */
+        background-size: cover;
+    }
+    .songiteam img {
+        width: 35px;
+        margin: 0 10px;
+    }
+    .songname {
+        font-size: 0.85rem;
+    }
+    .progress-container {
+        font-size: 0.8rem;
+    }
+}
